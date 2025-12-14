@@ -8,8 +8,7 @@ from eda_cli.core import (
     flatten_summary_for_print,
     missing_table,
     summarize_dataset,
-    top_categories,
-)
+    top_categories)
 
 
 def _sample_df() -> pd.DataFrame:
@@ -59,3 +58,12 @@ def test_correlation_and_top_categories():
     city_table = top_cats["city"]
     assert "value" in city_table.columns
     assert len(city_table) <= 2
+
+
+# HW03: новый тест
+def test_constant_column_flag():
+    df = pd.DataFrame({"a": [1, 1, 1], "b": [1, 2, 3]})
+    summary = summarize_dataset(df)
+    missing = missing_table(df)
+    flags = compute_quality_flags(summary, missing)
+    assert flags["has_constant_columns"] is True

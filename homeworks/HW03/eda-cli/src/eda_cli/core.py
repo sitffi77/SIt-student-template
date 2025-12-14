@@ -44,15 +44,6 @@ def summarize_dataset(
     df: pd.DataFrame,
     example_values_per_column: int = 3,
 ) -> DatasetSummary:
-    """
-    Полный обзор датасета по колонкам:
-    - количество строк/столбцов;
-    - типы;
-    - пропуски;
-    - количество уникальных;
-    - несколько примерных значений;
-    - базовые числовые статистики (для numeric).
-    """
     n_rows, n_cols = df.shape
     columns: List[ColumnSummary] = []
 
@@ -65,7 +56,6 @@ def summarize_dataset(
         missing_share = float(missing / n_rows) if n_rows > 0 else 0.0
         unique = int(s.nunique(dropna=True))
 
-        # Примерные значения выводим как строки
         examples = (
             s.dropna().astype(str).unique()[:example_values_per_column].tolist()
             if non_null > 0
@@ -105,9 +95,6 @@ def summarize_dataset(
 
 
 def missing_table(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Таблица пропусков по колонкам: count/share.
-    """
     if df.empty:
         return pd.DataFrame(columns=["missing_count", "missing_share"])
 
@@ -126,9 +113,6 @@ def missing_table(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def correlation_matrix(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Корреляция Пирсона для числовых колонок.
-    """
     numeric_df = df.select_dtypes(include="number")
     if numeric_df.empty:
         return pd.DataFrame()
@@ -140,10 +124,6 @@ def top_categories(
     max_columns: int = 5,
     top_k: int = 5,
 ) -> Dict[str, pd.DataFrame]:
-    """
-    Для категориальных/строковых колонок считает top-k значений.
-    Возвращает словарь: колонка -> DataFrame со столбцами value/count/share.
-    """
     result: Dict[str, pd.DataFrame] = {}
     candidate_cols: List[str] = []
 
@@ -179,18 +159,18 @@ def compute_quality_flags(summary: DatasetSummary, missing_df: pd.DataFrame) -> 
     flags["max_missing_share"] = max_missing_share
     flags["too_many_missing"] = max_missing_share > 0.5
 
-    # 1. Есть ли колонки-константы
+    # NEW 1: constant columns
     constant_cols = [c.name for c in summary.columns if c.unique == 1]
     flags["has_constant_columns"] = bool(constant_cols)
 
-    # 2. Есть ли категориальные с высокой кардинальностью (>50 уникальных)
+    # NEW 2: high-cardinality categoricals
     high_card_cols = [
         c.name for c in summary.columns
         if not c.is_numeric and c.unique > 50
     ]
     flags["has_high_cardinality_categoricals"] = bool(high_card_cols)
 
-    # базовый score
+    # quality score
     score = 1.0
     score -= max_missing_share
     if summary.n_rows < 100:
@@ -207,9 +187,6 @@ def compute_quality_flags(summary: DatasetSummary, missing_df: pd.DataFrame) -> 
 
 
 def flatten_summary_for_print(summary: DatasetSummary) -> pd.DataFrame:
-    """
-    Превращает DatasetSummary в табличку для более удобного вывода.
-    """
     rows: List[Dict[str, Any]] = []
     for col in summary.columns:
         rows.append(
