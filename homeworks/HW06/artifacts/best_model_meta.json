@@ -1,0 +1,51 @@
+{
+    "best_model": "HGB",
+    "test_metrics": {
+        "accuracy": 0.9423,
+        "f1": 0.9081,
+        "roc_auc": 0.9757
+    },
+    "search_summary": {
+        "best_params": {
+            "learning_rate": 0.1,
+            "max_depth": 7,
+            "max_iter": 200
+        },
+        "cv_roc_auc": 0.9705
+    },
+    "random_state": 42,
+    "dataset": "S06-hw-dataset-01.csv",
+    "date": "2026-01-17",
+    "categorical_features": [
+        "cat_contract",
+        "cat_region",
+        "cat_payment"
+    ],
+    "numerical_features": [
+        "num01",
+        "num02",
+        "num03",
+        "num04",
+        "num05",
+        "num06",
+        "num07",
+        "num08",
+        "num09",
+        "num10",
+        "num11",
+        "num12",
+        "num13",
+        "num14",
+        "num15",
+        "num16",
+        "num17",
+        "num18",
+        "num19",
+        "num20",
+        "num21",
+        "num22",
+        "num23",
+        "num24",
+        "tenure_months"
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "Dummy": {
+        "accuracy": 0.6767,
+        "f1": 0.0,
+        "roc_auc": 0.5
+    },
+    "LogReg": {
+        "accuracy": 0.83,
+        "f1": 0.7144,
+        "roc_auc": 0.8794
+    },
+    "Tree": {
+        "accuracy": 0.878,
+        "f1": 0.8036,
+        "roc_auc": 0.9165
+    },
+    "RF": {
+        "accuracy": 0.9293,
+        "f1": 0.8845,
+        "roc_auc": 0.9696
+    },
+    "HGB": {
+        "accuracy": 0.9423,
+        "f1": 0.9081,
+        "roc_auc": 0.9757
+    },
+    "Stacking": {
+        "accuracy": 0.9423,
+        "f1": 0.909,
+        "roc_auc": 0.9752
+    }
+}
