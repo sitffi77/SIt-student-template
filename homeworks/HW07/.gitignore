@@ -1,0 +1,27 @@
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+
+# Artifacts HW07 (создаются при запуске ноутбука)
+artifacts/
+report.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
