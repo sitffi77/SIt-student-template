@@ -1,0 +1,73 @@
+# ===================================================================
+# HW10-11 .gitignore
+# Студент: [Your Name]
+# Курс: Инженерия Искусственного Интеллекта
+# ===================================================================
+
+# -------------------------------------------------------------------
+# ИГНОРИРУЕМ (не коммитим)
+# -------------------------------------------------------------------
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Виртуальное окружение (если создаётся внутри папки)
+.venv/
+venv/
+ENV/
+
+# Датасеты (скачиваются кодом, не коммитим по заданию)
+data/
+data_voc/
+./data/
+./data_voc/
+
+# Временные файлы и кэш
+*.tmp
+*.temp
+*.cache
+.cache/
+logs/
+*.log
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS файлы
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# PyTorch cache
+.torch/
+torch_hub_cache/
+
+# -------------------------------------------------------------------
+# НЕ ИГНОРИРУЕМ (коммитим обязательно по заданию)
+# -------------------------------------------------------------------
+# Важно: следующие файлы ДОЛЖНЫ быть в репозитории:
+#
+# ✅ HW10-11.ipynb
+# ✅ report.md
+# ✅ artifacts/runs.csv
+# ✅ artifacts/best_classifier.pt
+# ✅ artifacts/best_classifier_config.json
+# ✅ artifacts/figures/classification_curves_best.png
+# ✅ artifacts/figures/classification_compare.png
+# ✅ artifacts/figures/augmentations_preview.png
+# ✅ artifacts/figures/detection_examples.png (или segmentation)
+# ✅ artifacts/figures/detection_metrics.png (или segmentation)
+#
+# Эти файлы явно НЕ добавлены в .gitignore выше!
+# -------------------------------------------------------------------
