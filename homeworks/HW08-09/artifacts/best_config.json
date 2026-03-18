@@ -1,5 +1,6 @@
 {
   "dataset": "EMNIST",
+  "dataset_split": "balanced",
   "seed": 42,
   "model": {
     "input_dim": 784,
@@ -16,7 +17,21 @@
     "optimizer": "Adam",
     "lr": 0.001,
     "weight_decay": 0,
+    "momentum": 0,
     "batch_size": 64,
-    "epochs": 25
-  }
+    "epochs": 25,
+    "early_stopping_patience": 5,
+    "early_stopping_min_delta": 0.0005,
+    "loss_function": "CrossEntropyLoss"
+  },
+  "data": {
+    "val_fraction": 0.15,
+    "transform": [
+      "ToTensor",
+      "Normalize(mean=0.5, std=0.5)"
+    ]
+  },
+  "experiment_id": "E4",
+  "best_val_accuracy": 0.75,
+  "test_accuracy": null
 }
