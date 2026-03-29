@@ -8,8 +8,7 @@
   "learning_rate": 0.001,
   "max_epochs": 50,
   "early_stopping_patience": 10,
-  "epochs_trained": 30,
+  "epochs_trained": 13,
   "seed": 42,
-  "device": "cpu",
-  "scaler": "StandardScaler (fit on train)"
+  "device": "cpu"
 }
