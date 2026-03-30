@@ -8,7 +8,9 @@
   "learning_rate": 0.001,
   "max_epochs": 50,
   "early_stopping_patience": 10,
-  "epochs_trained": 13,
+  "epochs_trained": 45,
   "seed": 42,
-  "device": "cpu"
+  "device": "cuda",
+  "scaler": "StandardScaler",
+  "normalization": "StandardScaler (fit on train, transform on val/test)"
 }
