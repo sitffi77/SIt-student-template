@@ -1,0 +1,4 @@
+query,before_retrieved_sources,after_retrieved_sources,changed
+менеджер poetry как работает,"[5, 10, 7]","[15, 16, 5]",True
+как ускорить установку пакетов,"[10, 12, 5]","[10, 17, 15]",True
+экспорт зависимостей poetry,"[5, 10, 3]","[15, 5, 16]",True
